@@ -8,9 +8,9 @@ function App() {
 
   const getRequest = async () => {
     try {
-      const { data } = await axios.get("/api/test");
-      console.log(data)
-      setState(data);
+      const { data } = await axios.get("/api/books");
+      console.log(data.allbooks)
+      setState(data.allbooks);
     } catch (err) { console.log(err) };
   }
 
@@ -20,7 +20,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{state.msg}</h1>
+      {/* <h1>state[0].description</h1> */}
+      <button></button>
     </div>
   );
 }

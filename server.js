@@ -17,6 +17,6 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api", require("./routes/apiRoutes"));
 
 //Connect to the Mongo DB
-mongoose.connect(process.env.MonGODB.URI || "mongodb://localhost/googlebooks");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
 
 app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
