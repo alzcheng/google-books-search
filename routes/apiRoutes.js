@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const { test, allBooks } = require("../controllers/apiControllers");
+const { test, savedBooks, deleteBook, saveBook } = require("../controllers/apiControllers");
 
 router.get("/test", test);
 
-router.get("/books", allBooks);
-// router.post("/api/books", saveBook);
-// router.delete("/api/books/:id", deleteBook);
+router.get("/books", savedBooks);
+router.post("/books", saveBook);
+router.delete("/books/:id", deleteBook);
 
 module.exports = router; 

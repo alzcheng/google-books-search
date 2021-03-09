@@ -3,7 +3,14 @@ const db = require("../models");
 
 //This file empties the Books collection and the book below
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+)
 
 const bookSeed = [
   {
@@ -15,14 +22,23 @@ const bookSeed = [
   }
 ];
 
-db.Book.remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+// db.Book.remove({})
+//   .then(() => db.Book.collection.insertMany(bookSeed))
+//   .then(data => {
+//     console.log(data.result.n + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   })
+
+db.Book.insertMany(bookSeed)
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.result + "records inserted!");
     process.exit(0);
   })
   .catch(err => {
     console.error(err);
     process.exit(1);
-  })
-
+  }); 
