@@ -24,7 +24,8 @@ const Saved = () => {
           image={book.image}
           link={book.link}
           authors={book.authors}
-          id={book._id}
+          key={book._id}
+          id={book.id}
           description={book.description}
         />
       )
