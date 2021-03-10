@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Button/Button';
 
 const SearchCard = ({ title, image, link, authors, id, description }) => {
+
   const onClickSave = async (e) => {
     e.preventDefault();
     console.log("save this book")
@@ -30,7 +31,7 @@ const SearchCard = ({ title, image, link, authors, id, description }) => {
                     <Button func={(e) => onClickView(e, link)} text={"View Book"} />
                   </div>
                   <div className="col-md-6">
-                    <Button func={(e) => onClickSave(e)} text={"Delete Book"} />
+                    <Button func={(e) => onClickSave(e)} text={"Save Book"} />
                   </div>
                 </div>
               </div>

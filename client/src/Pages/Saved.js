@@ -25,11 +25,11 @@ const Saved = () => {
           link={book.link}
           authors={book.authors}
           key={book._id}
-          id={book.id}
+          id={book._id}
           description={book.description}
         />
       )
-      )};
+      )}
     </div>
   )
 }

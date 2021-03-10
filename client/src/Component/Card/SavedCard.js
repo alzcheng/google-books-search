@@ -21,7 +21,7 @@ const SavedCard = ({ title, image, link, authors, id, description }) => {
   }
 
   return (
-    <div className="card mb-3 portfolio-element" key={id}>
+    <div className="card mb-3 portfolio-element">
       <div className="row no-gutters">
         <div className="col-md-4">
           <img src={image} alt={title}
