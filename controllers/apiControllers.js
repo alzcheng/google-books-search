@@ -1,14 +1,12 @@
-const db = require("../models")
+const db = require("../models");
+const axios = require("axios");
+require('dotenv').config();
 
 module.exports = {
-  test: (req, res) => {
-    res.send({ msg: "success" });
-  },
 
   savedBooks: (req, res) => {
     db.Book.find({})
       .then(data => {
-        //console.log(data);
         res.send({ savedbooks: data });
       })
       .catch(err => {
@@ -41,6 +39,15 @@ module.exports = {
       .catch(err => {
         console.error(err);
       })
-  }
+  },
 
+  getBooks: async (req, res) => {
+    try {
+      const myResult = req.body.result;
+      const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${myResult}&key=${process.env.API_KEY}`);
+      res.send(response.data.items);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 };

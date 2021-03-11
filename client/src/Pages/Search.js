@@ -11,22 +11,26 @@ const Search = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const mySearch = searchBookshelf.searchTerm.replace(/\s/g, '+');
-    console.log(mySearch);
-    const mySearchResult = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${mySearch}&key=MY_API_KEY`);
+    try {
+      const mySearch = await { result: searchBookshelf.searchTerm.replace(/\s/g, '+') };
+      const mySearchResult = await axios.post("/api/getGoogleBooks", mySearch);
 
-    const searchBooks = mySearchResult.data.items.map(result => ({
-      title: result.volumeInfo.title,
-      authors: result.volumeInfo.authors,
-      description: result.volumeInfo.description,
-      image: result.volumeInfo.imageLinks.thumbnail,
-      link: result.volumeInfo.previewLink,
-      id: result.id
-    }));
-    setSearchBookshelf({ ...searchBookshelf, searchResult: searchBooks });
+      const searchBooks = mySearchResult.data.map(result => ({
+        title: result.volumeInfo.title,
+        authors: result.volumeInfo.authors,
+        description: result.volumeInfo.description,
+        image: result.volumeInfo.imageLinks.thumbnail,
+        link: result.volumeInfo.previewLink,
+        id: result.id
+      }));
+      setSearchBookshelf({ ...searchBookshelf, searchResult: searchBooks });
 
-    // reset the form in the case that redirect comes back and the internal state is saved
-    e.target.reset();
+      // reset the form in the case that redirect comes back and the internal state is saved
+      e.target.reset();
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   const onClickSave = async (e, book) => {
@@ -51,7 +55,6 @@ const Search = () => {
 
   useEffect(() => {
     setSearchBookshelf({ searchTerm: "", searchResult: [] });
-
   }, [])
   return (
     <div>
