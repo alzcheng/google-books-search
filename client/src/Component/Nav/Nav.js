@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
     <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
       <div className="container-fluid">
-        <span className="navbar-brand mb-0 h1">React Google Search</span>
+        <span className="navbar-brand mb-0 h1">(React) Google Books Search</span>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

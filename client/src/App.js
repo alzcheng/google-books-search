@@ -4,6 +4,7 @@ import Saved from './Pages/Saved';
 import Search from './Pages/Search';
 import Nav from './Component/Nav/Nav';
 import NoMatch from './Pages/NoMatch';
+import Jumbotron from './Component/Jumbotron/Jumbotron';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Nav />
+        <Jumbotron />
         <Switch>
           <Route exact path="/" component={Saved} />
           <Route exact path="/search" component={Search} />
