@@ -19,7 +19,7 @@
   This application is deployed on Heroku. 
 
   ## Usage Information
-  Click the link here. 
+  Click [here](https://react-google-books-search-515.herokuapp.com/) to go to the deployed Herkou App. 
 
   ## Contribution Guidelines
   This project adheres to [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct.md) for any contributions.

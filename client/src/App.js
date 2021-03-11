@@ -14,8 +14,8 @@ function App() {
         <Nav />
         <Jumbotron />
         <Switch>
-          <Route exact path="/" component={Saved} />
-          <Route exact path="/search" component={Search} />
+          <Route exact path="/saved_books" component={Saved} />
+          <Route exact path="/" component={Search} />
           <Route path="*">
             <NoMatch />
           </Route>

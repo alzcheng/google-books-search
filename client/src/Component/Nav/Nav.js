@@ -12,15 +12,16 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link to="/search">
+              <Link to="/">
                 <span className="nav-link active">Search</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/">
+              <Link to="/saved_books">
                 <span className="nav-link active">Saved Books</span>
               </Link>
             </li>
+
           </ul>
         </div>
       </div>
